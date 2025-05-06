@@ -22,23 +22,23 @@ string Encrypt(const string& phrase, int shift) //creating and defining my Encry
     }
     return result; //returns my encrypted phrase
 }
-void Output(const string& encrypted)
+void Output(const string& encrypted) 
 {
   int count = 0; //creating count variable
   for(char s : encrypted) //checks each letter in my encrypted phrase
   {
     cout << s; //printing each letter
     count++; //increasing count
-    if(count % 5 == 0) 
+    if(count % 5 == 0) //condition checking if the block has reached 5 letters
     {
         cout << " "; //creates space after every 5 letters
     }
-    if(count % 50 == 0) 
+    if(count % 50 == 0) //condition checking if the line has reached 10 blocks or 50 characters
     {
         cout << endl; //creates new line after 10 blocks
     }
   }
-  if(count % 50 != 0) 
+  if(count % 50 != 0) //allows a block to be added that isn't 5 letters
   {
     cout << endl; //creates last newline if necessary  
   }
@@ -52,7 +52,7 @@ int main() //function compiler for my program
     cout << "Enter shift: " << endl; //asks user to enter shift value
     cin >> shift; //takes the user input for shift
     shift = (shift % 26 + 26) % 26; //keeps shift within range
-    string newInput = Input(phrase);
+    string newInput = Input(phrase); //calling my Input function
     string encrypted = Encrypt(newInput, shift); //calling my encrypt function
     Output(encrypted); //prints my encrypted phrase
     return 0; //ends function
